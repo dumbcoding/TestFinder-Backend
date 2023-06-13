@@ -3,7 +3,6 @@ package org.example.service;
 import org.example.dao.ItemDao;
 import org.example.model.Item;
 import lombok.RequiredArgsConstructor;
-import org.example.service.ItemService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,6 +28,11 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public List<Item> findBySchool(int school) {
         return itemDao.findBySchool(school);
+    }
+
+    @Override
+    public List<Item> findByUser(long user_id) {
+        return itemDao.findByUser(user_id);
     }
 
     @Override

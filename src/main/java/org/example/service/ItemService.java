@@ -10,6 +10,7 @@ public interface ItemService {
     List<Item> getAll();
     Item findById(long id);
     List<Item> findBySchool(int school);
+    List<Item> findByUser(long user_id);
     Item update(Item item);
     void deleteById(long id);
 }

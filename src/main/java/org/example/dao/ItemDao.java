@@ -12,6 +12,8 @@ import java.util.List;
 public interface ItemDao extends JpaRepository<Item, Long> {
     @Query(value = "SELECT * FROM ITEM WHERE SCHOOL = ?", nativeQuery = true)
     List<Item> findBySchool(int school);
+    @Query(value = "SELECT * FROM ITEM WHERE FROM_USER_ID = ?", nativeQuery = true)
+    List<Item> findByUser(long user_id);
     @Query(value = "SELECT * FROM ITEM WHERE ID = ?", nativeQuery = true)
     Item findById(long id);
 }

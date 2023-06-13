@@ -18,14 +18,18 @@ public class UserController {
         return userService.add(user);
     }
 
-    @GetMapping("/user")
+    /*@GetMapping("/user")
     public List<User> getAll() {
         return userService.getAll();
-    }
+    }*/
 
-    @GetMapping("/user/{email}")
-    public User findByEmail(@PathVariable String email) {
+    @GetMapping(value = "/user", params = {"email"})
+    public User findByEmail(@RequestParam(value="email") String email) {
         return userService.findByEmail(email);
+    }
+    @GetMapping(value = "/user", params = {"id"})
+    public String findById(@RequestParam(value="id") long id) {
+        return userService.findById(id);
     }
 
     @PutMapping("/user")

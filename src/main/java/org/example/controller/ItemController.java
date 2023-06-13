@@ -20,9 +20,13 @@ public class ItemController {
     public Item findById(@PathVariable long id) {
         return itemService.findById(id);
     }
-    @GetMapping("/item")
+    @GetMapping(value = "/item", params = {"school"})
     public List<Item> findBySchool(@RequestParam(value="school") int school) {
         return itemService.findBySchool(school);
+    }
+    @GetMapping(value = "/item", params = {"from_user_id"})
+    public List<Item> findByUser(@RequestParam(value="from_user_id") long user_id) {
+        return itemService.findByUser(user_id);
     }
 
     @PutMapping("/item")
